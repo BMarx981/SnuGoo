@@ -11,6 +11,7 @@ import UIKit
 
 class OscFilterViewController: UIViewController {
 
+    let model = OscFilterModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,33 +20,33 @@ class OscFilterViewController: UIViewController {
     //MARK: Oscillator Switches
     @IBAction private func SawSwitch(_ sender: UISwitch) {
         if sender.isOn {
-            OscFilterModel.sawOsc.start()
+            model.sawOsc.start()
         } else {
-            OscFilterModel.sawOsc.stop()
+            model.sawOsc.stop()
         }
     }
     
     @IBAction private func SquareSwitch(_ sender: UISwitch) {
         if sender.isOn {
-            OscFilterModel.squareOsc.start()
+            model.squareOsc.start()
         } else {
-            OscFilterModel.squareOsc.stop()
+            model.squareOsc.stop()
         }
     }
     
     @IBAction private func SineSwitch(_ sender: UISwitch) {
         if sender.isOn {
-            OscFilterModel.sineOsc.start()
+            model.sineOsc.start()
         } else {
-            OscFilterModel.sineOsc.stop()
+            model.sineOsc.stop()
         }
     }
     
     @IBAction private func TriangleSwitch(_ sender: UISwitch) {
         if sender.isOn {
-            OscFilterModel.triangleOsc.start()
+            model.triangleOsc.start()
         } else {
-            OscFilterModel.triangleOsc.stop()
+            model.triangleOsc.stop()
         }
     }
     
@@ -68,19 +69,20 @@ class OscFilterViewController: UIViewController {
     
     //MARK: Filter Types
     @IBAction private func FilterSegmentedControl(_ sender: UISegmentedControl) {
-        let filterChoice = sender.selectedSegementIndex
+        let filterChoice = sender.selectedSegmentIndex
         switch filterChoice {
-        case 0: OscFilterModel.lowPassMixer.amplitude = 1.0
-        OscFilterModel.bandPassMxer.amplitude = 0.0
-        OscFilterModel.highPassMixer.amplitude = 0.0
+        case 0: model.lowPassMixer.volume = 1.0
+                model.bandPassMixer.volume = 0.0
+                model.highPassMixer.volume = 0.0
             
-        case 1: OscFilterModel.lowPassMixer.amplitude = 0.0
-        OscFilterModel.bandPassMxer.amplitude = 1.0
-        OscFilterModel.highPassMixer.amplitude = 0.0
+        case 1: model.lowPassMixer.volume = 0.0
+                model.bandPassMixer.volume = 1.0
+                model.highPassMixer.volume = 0.0
             
-        case 2: OscFilterModel.lowPassMixer.amplitude = 0.0
-        OscFilterModel.bandPassMxer.amplitude = 0.0
-        OscFilterModel.highPassMixer.amplitude = 1.0
+        case 2: model.lowPassMixer.volume = 0.0
+                model.bandPassMixer.volume = 0.0
+                model.highPassMixer.volume = 1.0
+        default: break
         }
     }
     
