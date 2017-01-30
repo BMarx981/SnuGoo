@@ -14,7 +14,7 @@
 		79E90C5A1E3FB33200194577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E90C581E3FB33200194577 /* LaunchScreen.storyboard */; };
 		79E90C621E3FB36900194577 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E90C611E3FB36900194577 /* AudioKit.framework */; };
 		79E90C631E3FB36900194577 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79E90C611E3FB36900194577 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79E90C661E3FC33600194577 /* OscFilterModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E90C651E3FC33600194577 /* OscFilterModal.swift */; };
+		79E90C661E3FC33600194577 /* OscFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E90C651E3FC33600194577 /* OscFilterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +40,7 @@
 		79E90C591E3FB33200194577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79E90C5B1E3FB33200194577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E90C611E3FB36900194577 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
-		79E90C651E3FC33600194577 /* OscFilterModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscFilterModal.swift; sourceTree = "<group>"; };
+		79E90C651E3FC33600194577 /* OscFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscFilterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 			children = (
 				79E90C4F1E3FB33200194577 /* AppDelegate.swift */,
 				79E90C511E3FB33200194577 /* OscFilterViewController.swift */,
-				79E90C651E3FC33600194577 /* OscFilterModal.swift */,
+				79E90C651E3FC33600194577 /* OscFilterModel.swift */,
 				79E90C531E3FB33200194577 /* Main.storyboard */,
 				79E90C561E3FB33200194577 /* Assets.xcassets */,
 				79E90C581E3FB33200194577 /* LaunchScreen.storyboard */,
@@ -160,7 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79E90C661E3FC33600194577 /* OscFilterModal.swift in Sources */,
+				79E90C661E3FC33600194577 /* OscFilterModel.swift in Sources */,
 				79E90C521E3FB33200194577 /* OscFilterViewController.swift in Sources */,
 				79E90C501E3FB33200194577 /* AppDelegate.swift in Sources */,
 			);
