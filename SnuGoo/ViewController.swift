@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,6 +16,47 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    //MARK: Oscillator Switches
+    @IBAction func SawSwitch(_ sender: UISwitch) {
+        
+    }
+    
+    @IBAction func SquareSwitch(_ sender: UISwitch) {
+        
+    }
+    
+    @IBAction func SineSwitch(_ sender: UISwitch) {
+        
+    }
+    
+    @IBAction func TriangleSwitch(_ sender: UISwitch) {
+        
+    }
+    
+    //MARK: Oscillator Segmented Control switches
+    @IBAction func SawSegmentedControl(_ sender: UISegmentedControl) {
+        
+    }
+    
+    @IBAction func SquareSegmentedControl(_ sender: UISegmentedControl) {
+        
+    }
+    
+    @IBAction func SineSegmentedControl(_ sender: UISegmentedControl) {
+        
+    }
+    
+    @IBAction func TriangleSegmentedControl(_ sender: UISegmentedControl) {
+        
+    }
+    
+    //MARK: Filter Types
+    @IBAction func FilterSegmentedControl(_ sender: UISegmentedControl) {
+        
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
