@@ -17,42 +17,71 @@ class OscFilterViewController: UIViewController {
     }
 
     //MARK: Oscillator Switches
-    @IBAction func SawSwitch(_ sender: UISwitch) {
-        
+    @IBAction private func SawSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            OscFilterModel.sawOsc.start()
+        } else {
+            OscFilterModel.sawOsc.stop()
+        }
     }
     
-    @IBAction func SquareSwitch(_ sender: UISwitch) {
-        
+    @IBAction private func SquareSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            OscFilterModel.squareOsc.start()
+        } else {
+            OscFilterModel.squareOsc.stop()
+        }
     }
     
-    @IBAction func SineSwitch(_ sender: UISwitch) {
-        
+    @IBAction private func SineSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            OscFilterModel.sineOsc.start()
+        } else {
+            OscFilterModel.sineOsc.stop()
+        }
     }
     
-    @IBAction func TriangleSwitch(_ sender: UISwitch) {
-        
+    @IBAction private func TriangleSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            OscFilterModel.triangleOsc.start()
+        } else {
+            OscFilterModel.triangleOsc.stop()
+        }
     }
     
     //MARK: Oscillator Segmented Control switches
-    @IBAction func SawSegmentedControl(_ sender: UISegmentedControl) {
+    @IBAction private func SawSegmentedControl(_ sender: UISegmentedControl) {
         
     }
     
-    @IBAction func SquareSegmentedControl(_ sender: UISegmentedControl) {
+    @IBAction private func SquareSegmentedControl(_ sender: UISegmentedControl) {
         
     }
     
-    @IBAction func SineSegmentedControl(_ sender: UISegmentedControl) {
+    @IBAction private func SineSegmentedControl(_ sender: UISegmentedControl) {
         
     }
     
-    @IBAction func TriangleSegmentedControl(_ sender: UISegmentedControl) {
+    @IBAction private func TriangleSegmentedControl(_ sender: UISegmentedControl) {
         
     }
     
     //MARK: Filter Types
-    @IBAction func FilterSegmentedControl(_ sender: UISegmentedControl) {
-        
+    @IBAction private func FilterSegmentedControl(_ sender: UISegmentedControl) {
+        let filterChoice = sender.selectedSegementIndex
+        switch filterChoice {
+        case 0: OscFilterModel.lowPassMixer.amplitude = 1.0
+        OscFilterModel.bandPassMxer.amplitude = 0.0
+        OscFilterModel.highPassMixer.amplitude = 0.0
+            
+        case 1: OscFilterModel.lowPassMixer.amplitude = 0.0
+        OscFilterModel.bandPassMxer.amplitude = 1.0
+        OscFilterModel.highPassMixer.amplitude = 0.0
+            
+        case 2: OscFilterModel.lowPassMixer.amplitude = 0.0
+        OscFilterModel.bandPassMxer.amplitude = 0.0
+        OscFilterModel.highPassMixer.amplitude = 1.0
+        }
     }
     
     

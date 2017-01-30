@@ -28,11 +28,14 @@ class OscFilterModel {
     var bandPassMixer: AKMixer
     var highPass: AKHighPassFilter
     var highPassMixer: AKMixer
+    
+    var mainMixer: AKMixer
 
     
     init() {
         
         oscMixer = AKMixer(sawOsc, squareOsc, sineOsc, triangleOsc)
+        oscMixer.start()
         
         //Filter inits
         lowPass = AKLowPassFilter(oscMixer, cutoffFrequency: mainFilterFreq, resonance: 0.5)
@@ -41,23 +44,62 @@ class OscFilterModel {
         
         //Filter Mixers
         lowPassMixer = AKMixer(lowPass)
+        lowPassMixer.start()
         bandPassMixer = AKMixer(bandPass)
+        bandPassMixer.start()
         highPassMixer = AKMixer(highPass)
+        highPassMixer.start()
+        
+        mainMixer = AKMixer(lowPassMixer, bandPassMixer, highPassMixer)
+        mainMixer.start()
+        AudioKit.output = mainMixer
+        AudioKit.start()
         
     }
     
-    private func adjustFilterFrequency(freq: Double) {
+    func adjustFilterFrequency(freq: Double) {
         mainFilterFreq = freq
         lowPass.cutoffFrequency = freq
         bandPass.centerFrequency = freq
         highPass.cutoffFrequency = freq
     }
     
-    private func adjustOscFrequency(freq: Double) {
+    func adjustOscFrequency(freq: Double) {
         mainOscFreq = freq
         sawOsc.frequency = freq
         squareOsc.frequency = freq
         sineOsc.frequency = freq
         triangleOsc.frequency = freq
     }
+    
+    
 }
+
+/*
+func turnOnSawOsc() {
+    sawOsc.start()
+}
+
+func turnOffSawOsc() {
+    sawOsc.stop()
+}
+
+func turnOnSquareOsc() {
+    squareOsc.start()
+}
+
+func turnOnSineOsc() {
+    sineOsc.start()
+}
+
+func turnOffSineOsc() {
+    sineOsc.stop()
+}
+
+func turnOnTriangleOsc() {
+    triangleOsc.start()
+}
+
+func turnOffTriangleOsc() {
+    triangleOsc.stop()
+}*/
