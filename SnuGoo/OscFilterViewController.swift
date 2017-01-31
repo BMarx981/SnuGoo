@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class OscFilterViewController: UIViewController {
 
     let model = OscFilterModel()
@@ -19,11 +18,12 @@ class OscFilterViewController: UIViewController {
 
     //MARK: Oscillator Switches
     @IBAction private func SawSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            model.sawOsc.start()
-        } else {
-            model.sawOsc.stop()
-        }
+        print(sender.isOn)
+//        if sender.isOn {
+//            model.sawOsc.start()
+//        } else {
+//            model.sawOsc.stop()
+//        }
     }
     
     @IBAction private func SquareSwitch(_ sender: UISwitch) {
@@ -52,19 +52,33 @@ class OscFilterViewController: UIViewController {
     
     //MARK: Oscillator Segmented Control switches
     @IBAction private func SawSegmentedControl(_ sender: UISegmentedControl) {
-        
+        let m = multiplierSelector(multiplier: sender.selectedSegmentIndex)
+        model.changeMultiplier(oscillatorType: 0, by: m)
     }
     
     @IBAction private func SquareSegmentedControl(_ sender: UISegmentedControl) {
-        
+        let m = multiplierSelector(multiplier: sender.selectedSegmentIndex)
+        model.changeMultiplier(oscillatorType: 1, by: m)
     }
     
     @IBAction private func SineSegmentedControl(_ sender: UISegmentedControl) {
-        
+        let m = multiplierSelector(multiplier: sender.selectedSegmentIndex)
+        model.changeMultiplier(oscillatorType: 2, by: m)
     }
     
     @IBAction private func TriangleSegmentedControl(_ sender: UISegmentedControl) {
-        
+        let m = multiplierSelector(multiplier: sender.selectedSegmentIndex)
+        model.changeMultiplier(oscillatorType: 3, by: m)
+    }
+    
+    func multiplierSelector(multiplier: Int) -> Double {
+        switch multiplier {
+            case 0: return 1
+            case 1: return 1.5
+            case 2: return 2
+            default: break
+        }
+        return 1
     }
     
     //MARK: Filter Types
@@ -95,4 +109,6 @@ class OscFilterViewController: UIViewController {
 
 
 }
+
+
 

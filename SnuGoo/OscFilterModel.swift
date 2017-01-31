@@ -34,6 +34,10 @@ class OscFilterModel {
     
     init() {
         
+        sawOsc.start()
+        squareOsc.start()
+        sineOsc.start()
+        triangleOsc.start()
         oscMixer = AKMixer(sawOsc, squareOsc, sineOsc, triangleOsc)
         oscMixer.start()
         
@@ -70,6 +74,17 @@ class OscFilterModel {
         squareOsc.frequency = freq
         sineOsc.frequency = freq
         triangleOsc.frequency = freq
+    }
+    
+    func changeMultiplier(oscillatorType: Int, by multiplier: Double) {
+        switch oscillatorType {
+            case 0: sawOsc.frequency = sawOsc.frequency * multiplier
+            case 1: squareOsc.frequency = squareOsc.frequency * multiplier
+            case 2: sineOsc.frequency = sineOsc.frequency * multiplier
+            case 3: triangleOsc.frequency = triangleOsc.frequency * multiplier
+            default: break
+        }
+        
     }
     
     
